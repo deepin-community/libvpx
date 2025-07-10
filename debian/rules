@@ -1,9 +1,8 @@
 #!/usr/bin/make -f
 
-export DEB_BUILD_MAINT_OPTIONS = hardening=+all
-
-DEB_CFLAGS_MAINT_APPEND = -Wall
-DEB_CXXFLAGS_MAINT_APPEND = -Wall
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all optimize=-lto
+export DEB_CFLAGS_MAINT_APPEND = -Wall
+export DEB_CXXFLAGS_MAINT_APPEND = -Wall
 
 include /usr/share/dpkg/architecture.mk
 
@@ -40,35 +39,13 @@ else
 ifeq ($(DEB_HOST_ARCH), amd64)
 configure_flags += --target=x86_64-linux-gcc
 else
-ifeq ($(DEB_HOST_ARCH), kfreebsd-amd64)
-configure_flags += --target=x86_64-linux-gcc
-else
 ifeq ($(DEB_HOST_ARCH), i386)
-configure_flags += --target=x86-linux-gcc
-else
-ifeq ($(DEB_HOST_ARCH), kfreebsd-i386)
 configure_flags += --target=x86-linux-gcc
 else
 ifeq ($(DEB_HOST_ARCH), hurd-i386)
 configure_flags += --target=x86-linux-gcc
 else
-ifeq ($(DEB_HOST_ARCH), mips)
 configure_flags += --target=generic-gnu
-# Disable MIPS assembly for now, it requires DSP R2
-DEB_CFLAGS_MAINT_APPEND += -DLIBYUV_DISABLE_MIPS=1
-DEB_CXXFLAGS_MAINT_APPEND += -DLIBYUV_DISABLE_MIPS=1
-else
-ifeq ($(DEB_HOST_ARCH), mipsel)
-configure_flags += --target=generic-gnu
-# Disable MIPS assembly for now, it requires DSP R2
-DEB_CFLAGS_MAINT_APPEND += -DLIBYUV_DISABLE_MIPS=1
-DEB_CXXFLAGS_MAINT_APPEND += -DLIBYUV_DISABLE_MIPS=1
-else
-configure_flags += --target=generic-gnu
-endif
-endif
-endif
-endif
 endif
 endif
 endif
@@ -83,24 +60,20 @@ endif
 
 builddir := $(CURDIR)/builddir
 
-export DEB_CFLAGS_MAINT_APPEND
-export DEB_CXXFLAGS_MAINT_APPEND
-
 %:
 	dh $@
 
-override_dh_auto_clean:
-	dh_auto_clean
+execute_after_dh_auto_clean:
 	rm -rf $(builddir) $(builddir)-neon
 
 override_dh_auto_configure:
-	mkdir -p $(builddir) ; \
-	cd $(builddir) ; \
-	${CURDIR}/configure $(configure_flags)
+	mkdir -p $(builddir)
+	cd $(builddir); \
+	CFLAGS="${CPPFLAGS} ${CFLAGS}" ${CURDIR}/configure $(configure_flags)
 ifeq ($(BUILD_NEON), Yes)
-	mkdir -p $(builddir)-neon ; \
-	cd $(builddir)-neon ; \
-	${CURDIR}/configure $(configure_flags_neon)
+	mkdir -p $(builddir)-neon
+	cd $(builddir)-neon; \
+	CFLAGS="${CPPFLAGS} ${CFLAGS}" ${CURDIR}/configure $(configure_flags_neon)
 endif
 
 override_dh_auto_build:

@@ -1,3 +1,89 @@
+libvpx (1.15.0-2.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * vpx_codec_enc_init_multi: fix double free on init failure
+    (Closes: #1106689)
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 27 May 2025 23:00:58 +0200
+
+libvpx (1.15.0-2) unstable; urgency=medium
+
+  * Team upload
+
+  [ Sergio Durigan Junior ]
+  * Disable LTO since the build fails with it enabled (Closes: #1015532)
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Wed, 19 Feb 2025 22:37:58 -0500
+
+libvpx (1.15.0-1) unstable; urgency=medium
+
+  * New upstream version 1.15.0
+  * debian/libvpx9.symbols: Drop unused symbols
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Sun, 15 Dec 2024 19:49:35 +0100
+
+libvpx (1.14.1-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * Remove myself from Uploaders
+
+  [ Sebastian Ramacher ]
+  * New upstream version 1.14.1
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Sun, 02 Jun 2024 22:06:42 +0200
+
+libvpx (1.14.0-2) unstable; urgency=medium
+
+  * Upload to unstable
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Thu, 09 May 2024 19:53:32 +0200
+
+libvpx (1.14.0-1) experimental; urgency=medium
+
+  * New upstream version 1.14.0
+    - SONAME bump: libvpx8 -> libvpx9
+  * debian/copyright:
+    - Update copyright years
+    - Add myself
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Sat, 27 Jan 2024 12:56:19 +0100
+
+libvpx (1.13.1-2) unstable; urgency=medium
+
+  * Upload to unstable
+  * debian/: Honor CPPFLAGS
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Thu, 05 Oct 2023 23:10:32 +0200
+
+libvpx (1.13.1-1) experimental; urgency=medium
+
+  * New upstream version 1.13.1
+    - SONAME bump: libvpx7 -> libvpx8
+  * debian/patches: Drop patches included upstream
+  * debian/: Remove no longer supported architectures
+  * debian/control:
+    - Add myself to uploaders
+    - Bump Standards-Version
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Sat, 30 Sep 2023 23:08:26 +0200
+
+libvpx (1.12.0-1.1) unstable; urgency=high
+
+  * Non-maintainer upload.
+  * encode_api_test: add ConfigResizeChangeThreadCount
+  * VP8: disallow thread count changes (CVE-2023-5217) (Closes: #1053182)
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 28 Sep 2023 23:07:11 +0200
+
+libvpx (1.12.0-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream version 1.12.0
+  * debian/control: Bump Standards-Version
+  * debian/libvpx7.symbols: Bump minimal version of symbols doing version checks
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Sat, 09 Jul 2022 15:20:25 +0200
+
 libvpx (1.11.0-2) unstable; urgency=medium
 
   * Team upload
