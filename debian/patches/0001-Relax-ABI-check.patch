@@ -22,7 +22,7 @@ index 427cd1b..eddbf1a 100644
    else if (!ctx || !iface)
      res = VPX_CODEC_INVALID_PARAM;
 diff --git a/vpx/src/vpx_encoder.c b/vpx/src/vpx_encoder.c
-index f636b54..9f8eac9 100644
+index 846638f..a07e3c6 100644
 --- a/vpx/src/vpx_encoder.c
 +++ b/vpx/src/vpx_encoder.c
 @@ -32,7 +32,7 @@ vpx_codec_err_t vpx_codec_enc_init_ver(vpx_codec_ctx_t *ctx,

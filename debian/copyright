@@ -27,7 +27,7 @@ Comment:
  litigation is filed.
 
 Files: *
-Copyright: (c) 2010-2018, The WebM Project authors. All rights reserved.
+Copyright: (c) 2010-2023, The WebM Project authors
 License: BSD-3-Clause
 
 Files: md5_utils.*
@@ -63,6 +63,7 @@ License: ISC
 Files: debian/*
 Copyright: (c) 2010-2016, Sebastian Dröge <slomo@debian.org>
            (c) 2016-2019, Ondřej Nový <onovy@debian.org>
+           2020-2024, Sebastian Ramacher
 License: BSD-3-Clause
 
 License: BSD-3-Clause
