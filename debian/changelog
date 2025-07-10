@@ -1,3 +1,42 @@
+libvpx (1.12.0-1+deb12u4) bookworm-security; urgency=high
+
+  * Non-maintainer upload by the Security Team.
+  * vpx_codec_enc_init_multi: fix double free on init failure
+    (Closes: #1106689)
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 27 May 2025 23:16:51 +0200
+
+libvpx (1.12.0-1+deb12u3) bookworm-security; urgency=medium
+
+  * Non-maintainer upload.
+  * CVE-2024-5197: Integer overflows
+
+ -- Adrian Bunk <bunk@debian.org>  Thu, 20 Jun 2024 13:01:27 +0300
+
+libvpx (1.12.0-1+deb12u2) bookworm-security; urgency=high
+
+  * Non-maintainer upload by the Security Team.
+  * Fix bug with smaller width bigger size (CVE-2023-44488)
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 01 Oct 2023 17:26:47 +0200
+
+libvpx (1.12.0-1+deb12u1) bookworm-security; urgency=high
+
+  * Non-maintainer upload by the Security Team.
+  * encode_api_test: add ConfigResizeChangeThreadCount
+  * VP8: disallow thread count changes (CVE-2023-5217) (Closes: #1053182)
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 28 Sep 2023 22:55:08 +0200
+
+libvpx (1.12.0-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream version 1.12.0
+  * debian/control: Bump Standards-Version
+  * debian/libvpx7.symbols: Bump minimal version of symbols doing version checks
+
+ -- Sebastian Ramacher <sramacher@debian.org>  Sat, 09 Jul 2022 15:20:25 +0200
+
 libvpx (1.11.0-2) unstable; urgency=medium
 
   * Team upload
