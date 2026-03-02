@@ -7,3 +7,4 @@
 0003-Avoid-integer-overflows-in-arithmetic-operations.patch
 0004-Fix-a-bug-in-alloc_size-for-high-bit-depths.patch
 vpx_codec_enc_init_multi-fix-double-free-on-init-fai.patch
+CVE-2026-2447.patch
